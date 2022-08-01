@@ -1,0 +1,53 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	qa
+*********************************/
+.qa {
+  color: #1B224C;
+  padding-bottom: 60px;
+  .section_ttl {
+    color: base.$base-color;
+  }
+  &__wrap {
+    border-top: 1px solid #1B224C;
+    padding: 0 0 function.em(15.5, 16) 0;
+    &:first-of-type {
+      margin-top: 32.5px;
+    }
+    &:last-of-type {
+      border-bottom: 1px solid #1B224C;
+    }
+  }
+  &__q {
+    display: block;
+    padding: function.em(25.5, 16) function.em(45, 16) function.em(18, 16) 0;
+    position: relative;
+    &::after,&::before {
+      content: '';
+      display: inline-block;
+      height: 3px;
+      width: 25px;
+      background-color: #000;
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all .3s;
+    }
+    &.active {
+      &::before {
+        transform: rotate(90deg);
+        top: 48%;
+        transition: all .3s;
+      }
+    }
+  }
+  &__a {
+    display: none;
+    padding: function.em(23, 16) function.em(26, 16);
+    background-color: #F8F8F8;
+  }
+}

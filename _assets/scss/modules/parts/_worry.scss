@@ -1,0 +1,65 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	worry
+*********************************/
+.worry {
+  padding-top: 63px;
+  padding-bottom: 54px;
+  background-color: base.$base-color;
+
+  &__cnt {
+    display: flex;
+    justify-content: center;
+    margin-top: 65px;
+    @include mixin.mq(md, max) {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    color: #fff;
+    line-height: 2.16;
+    text-align: center;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+    @include mixin.mq(md, max) {
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+  }
+  &__box {
+    background-color: #fff;
+    text-align: center;
+    padding: 11px 16px;
+    margin-top: 83px;
+    
+  }
+  &__inner {
+    padding: 21px 16px 24px;
+    border: 5px solid base.$base-color;
+  }
+  &__txt {
+    color: base.$base-color;
+    line-height: 1.38;
+    &:last-child {
+      margin-top: 25px;
+    }
+    &.worry__txt--large {
+      font-size: function.fz(36);
+      font-weight: bold;
+      @include mixin.mq(md, max) {
+        font-size: function.fz(28);
+      }
+    }
+  }
+}
+.underline {
+  background:linear-gradient(transparent 60%, base.$accent-color 60%);
+}

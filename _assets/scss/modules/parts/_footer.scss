@@ -1,0 +1,152 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	CTA
+*********************************/
+.cta {
+  &__cnt {
+    background: url('/image/cta@2x.png') no-repeat center / cover;
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  &__ttl {
+    font-size: function.fz(32);
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    @include mixin.mq(md, max) {
+      font-size: function.fz(28);
+    }
+  }
+  &-btn {
+    text-align: center;
+    .cta-btn__txt a{
+      color: #fff;
+      display: inline-block;
+      margin-top: 16px;
+      text-decoration: underline;
+    }
+  }
+  .btn {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 280px;
+    margin-top: 16px;
+  }
+}
+.btn--round {
+  border-radius: 25px;
+}
+.cta-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: base.$base-color;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  &__txt:not(:last-child) {
+    margin-right: 20px;
+  }
+  &__phone {
+    font-size: function.fz(36);
+    line-height: 1;
+  }
+  @include mixin.mq(md, max) {
+    flex-direction: column;
+    align-items: initial;
+    &__txt {
+      text-align: center;
+    }
+    &__txt:not(:last-child) {
+      margin-right: initial;
+    }
+    &__txt:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+}
+
+
+/*********************************
+	footerの設定
+*********************************/
+
+.footer {
+  background-color: base.$base-color;
+  color: #fff;
+  padding-top: 35px;
+  padding-bottom: 70px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    @include mixin.mq(md, max) {
+      flex-direction: column;
+    }
+  }
+  @include mixin.mq(md, max) {
+    padding-bottom: 40px;
+  }
+}
+.footer-nav {
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+  &__item {
+    padding-left: 21.5px;
+    padding-right: 21.5px;
+    &:not(:last-child) {
+      border-right: 1px solid #fff;
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+    a {
+      color: #fff;
+    }
+    @include mixin.mq(md, max) {
+      padding-right: 10px;
+      padding-left: 10px;
+      font-size: 14px;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+.footer_cnt {
+  .phone {
+    margin-right: 0;
+  }
+  @include mixin.mq(md, max) {
+    margin-top: 20px;
+  }
+}
+.phone.footer_phone {
+  display: block;
+  margin-top: 27px;
+  @include mixin.mq(md, max) {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+.footer_cnt__logo {
+  background-color: #fff;
+  max-width: 197px;
+  text-align: center;
+  padding: 13px 19px;
+  a {
+    display: block;
+  }
+  img {
+    width: 100%;
+    vertical-align: middle;
+  }
+  @include mixin.mq(md, max) {
+    margin: 0 auto;
+    max-width: 160px;
+  }
+}

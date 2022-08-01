@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <meta name="description" content="120文字以内">
+  <!-- scroll-hint -->
+  <link rel="stylesheet" href="https://unpkg.com/scroll-hint@1.1.10/css/scroll-hint.css">
+  <!-- local css -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" sizes="16x16" href="./image/favicon.ico">
+  <meta name="format-detection" content="telephone=no">
+</head>
+<body class="contact">
+  <header class="header">
+    <div class="overlay"></div>
+    <div class="header-left">
+      <div class="logo">
+        <a href="#">
+          <img src="./image/logo(2)@2x.png" alt="ロゴ">
+        </a>
+      </div>
+      <nav class="gnav">
+        <ul class="gnav__list">
+          <li class="gnav__item"><a href="#">ホーム</a></li>
+          <li class="gnav__item"><a href="#">お知らせ</a></li>
+          <li class="gnav__item"><a href="#">ブログ</a></li>
+          <li class="gnav__item"><a href="#">コース・料金</a></li>
+        </ul>
+        <div class="hamburger-btn">
+          <a href="#" class="btn btn--accent">資料請求</a>
+          <a href="#" class="btn btn--default">お問い合わせ</a>
+        </div>
+      </nav>
+    </div>
+    <div class="header-right">
+      <div class="phone">
+        <span class="phone__time">平日08:00〜20:00</span>
+        <p class="phone__num">0123-456-7890</p>
+      </div>
+      <div class="header-btn-wrap">
+        <a href="" class="btn btn--accent">資料請求</a>
+        <a href="" class="btn btn--default">お問い合わせ</a>
+      </div>
+      <div class="hamburger">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </div>
+    </div>
+  </header>
+  <div class="bread_crumb">
+    <div class="container">
+      <ul class="bread_crumb__wrap">
+        <li class="bread_crumb__item"><a href="#">ホーム</a></li>
+        <li class="bread_crumb__item"><a href="#">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="fv_sub">
+    <div class="fv_sub__cnt container">
+      <h1 class="fv_sub__ttl">お問い合わせ・資料請求</h1>
+    </div>
+  </section>
+
+  <div class="form_wrap">
+    <div class="container">
+      <p class="form_wrap__lead">弊社に興味を持って頂きありがとうございます。商談やサービスのご利用、資料請求について下記のフォームよりお問い合わせください。</p>
+      <form action="" class="form">
+        <div class="form__item">
+          <label for="company">会社名</label>
+          <input type="text" placeholder="Engress" name="company" id="company">
+        </div>
+        <div class="form__item">
+          <label for="name">氏名</label>
+          <input type="text" placeholder="田中太郎" name="name" id="name">
+        </div>
+        <div class="form__item">
+          <label for="mail">メールアドレス</label>
+          <input type="email" placeholder="example@example.com" name="mail" id="mail">
+        </div>
+        <div class="form__item">
+          <label for="phone">電話番号</label>
+          <input type="tel" placeholder="01-2345-6789" name="phone" id="phone">
+        </div>
+        <div class="form__item">
+          <p>お問い合わせの種類を選択してください（<span class="fwB">資料請求の方は資料請求を選択してください</span>）</p>
+          <div class="input_field">
+            <label name="sodan">
+              <input type="radio" name="contact" value="商談のご相談"><span>商談のご相談</span>
+            </label>
+            <label name="sodan">
+              <input type="radio" name="contact" value="サービスに関するお問いわせ"><span>サービスに関するお問いわせ</span>
+            </label>
+            <label name="sodan">
+              <input type="radio" name="contact" value="資料請求"><span>資料請求</span>
+            </label>
+            <label name="sodan">
+              <input type="radio" name="contact" value="その他"><span>その他</span>
+            </label>
+          </div>
+        </div>
+        <div class="form__item">
+          <label for="content">お問い合わせ内容</label>
+          <textarea name="content" id="content" cols="30" rows="10" placeholder="入力してください"></textarea>
+        </div>
+        <div class="form__item item_privacy">
+          <p class="policy"><a href="#" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信ください。</p>
+          <label>
+            <input type="checkbox" value="同意する"><span>プライバシーポリシーに同意する</span>
+          </label>
+        </div>
+        <div class="form__submit">
+          <button class="form__btn" type="submit">送信する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-nav">
+        <ul class="footer-nav__list">
+          <li class="footer-nav__item"><a href="#">ホーム</a></li>
+          <li class="footer-nav__item"><a href="#">お知らせ</a></li>
+          <li class="footer-nav__item"><a href="#">ブログ</a></li>
+          <li class="footer-nav__item"><a href="#">コース・料金</a></li>
+        </ul>
+      </nav>
+      <div class="footer_cnt">
+        <div class="footer_cnt__logo">
+          <a href="#">
+            <img src="./image/logo (2)@2x.png" alt="フッターロゴ">
+          </a>
+        </div>
+        <div class="phone footer_phone">
+          <span class="phone__time">平日08:00〜20:00</span>
+          <p class="phone__num">0123-456-7890</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>

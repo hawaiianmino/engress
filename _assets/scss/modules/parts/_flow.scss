@@ -1,0 +1,76 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	flow
+*********************************/
+.flow {
+  padding-top: 58px;
+  padding-bottom: 60px;
+  .section_ttl {
+    color: base.$base-color;
+  }
+  &__wrap {
+    margin-top: 53px;
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    + .flow__item {
+      margin-top: 8px;
+    }
+  }
+  &__inner {
+    display: flex;
+    flex: 1;
+    @include mixin.mq(md, max) {
+      flex-direction: column;
+    }
+  }
+  &__tag {
+    display: flex;
+    align-items: center;
+    padding: function.em(23, 16);
+    background-color: base.$accent-color;
+    color: #fff;
+  }
+  &__ttl {
+    display: flex;
+    align-items: center;
+    font-size: function.fz(18);
+    font-weight: bold;
+    padding: function.em(21, 18);
+    background-color: #f8f8f8;
+    width: calc((210 / (917 - 64)) * 100%);
+    @include mixin.mq(md, max) {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+  &__txt {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: function.em(24, 16) function.em(24, 16) function.em(24, 16) function.em(53, 16);
+    flex: 1;
+    position: relative;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 2px;
+      height: 30px;
+      background-color: #c3c3c3;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      @include mixin.mq(md, max) {
+        content: none;
+      }
+    }
+    @include mixin.mq(md, max) {
+      padding: 0 10px 10px;
+    }
+  }
+}

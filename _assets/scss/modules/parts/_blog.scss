@@ -1,0 +1,78 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	blog
+*********************************/
+.article_list {
+  padding: 60px 0 106px;
+  .card_list {
+    &__img {
+      width: 240px;
+      @include mixin.mq(md,max) {
+        width: 100%;
+      }
+    }
+    &__ttl {
+      font-size: function.fz(26);
+      margin-top: 20px;
+      @include mixin.mq(md,max) {
+        margin-top: 10px;
+        font-size: function.fz(20);
+      }
+    }
+    &__time {
+      margin-top: 0;
+    }
+    &__txt {
+      margin-top: 20px;
+      @include mixin.mq(md,max) {
+        margin-top: 10px;
+      }
+    }
+    &__item {
+      + .card_list__item {
+        margin-top: 60px;
+        @include mixin.mq(md,max) {
+          margin-top: 30px;
+        }
+      }
+    }
+    &__cnt {
+      @include mixin.mq(md,max) {
+        margin-top: 10px;
+      }
+    }
+    &__link {
+      @include mixin.mq(md,max) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.pagination {
+  margin-bottom: 45px;
+  ul.page-numbers {
+    display: flex;
+    justify-content: center;
+  }
+  li {
+    > .page-numbers {
+      border: 1px solid base.$base-color;
+      display: block;
+      padding: function.em(17,16) function.em(20,16);
+      &.dots {
+        border: none;
+      }
+      &.current {
+        background-color: base.$base-color;
+        color: #fff;
+      }
+    }
+    + li {
+      margin-left: 19px;
+    }
+  }
+}

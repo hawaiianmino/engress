@@ -1,0 +1,61 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	info
+*********************************/
+.info {
+  .pagination {
+    margin-top: 65px;
+    @include mixin.mq(sm,max) {
+      li + li {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+.info_article {
+  padding-top: 60px;
+
+  &__wrap {
+    margin-top: 45px;
+  }
+ &__item {
+  padding: 24px 0;
+  border-bottom: 1px solid #d5d5d5;
+  display: flex;
+  justify-content: space-between;
+  &:first-of-type {
+    border-top: 1px solid #d5d5d5;
+  }
+  @include mixin.mq(md,max) {
+    flex-direction: column;
+  }
+ }
+ &__time {
+  margin-right: 50px;
+  font-size: 16px;
+  min-width: 90px;
+  @include mixin.mq(md,max) {
+    margin-right: 0;
+  }
+ }
+ &__link {
+  flex: 1;
+  padding-right: 30px;
+  text-decoration: underline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: base.$base-color;
+  &:hover {
+    opacity: .7;
+    transition: all .3s;
+  }
+  @include mixin.mq(md,max) {
+    padding-right: 0;
+    margin-top: 5px;
+  }
+ }
+}

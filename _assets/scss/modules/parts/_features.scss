@@ -1,0 +1,104 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	features
+*********************************/
+.features {
+  padding-top: 59px;
+  padding-bottom: 39px;
+}
+.feature {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 60px;
+  &__cnt {
+    width: calc((500 / 917) * 100%);
+    margin-right: 50px;
+    flex: 1;
+  }
+  &__ttl {
+    font-size: 26px;
+    font-weight: bold;
+    color: base.$base-color;
+    margin-top: function.vw(1280, 35);
+    line-height: 1.5;
+    @include mixin.mq(md,max) {
+      font-size: 20px;
+    }
+  }
+  &__txt {
+    margin-top: function.vw(1280, 39);
+    line-height: 1.68;
+  }
+  &__img {
+   width: calc((350 / 917) * 100%); 
+   position: relative;
+   &::before {
+    content: '';
+    display: block;
+    padding-top: 68.5%;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
+   }
+  }
+  &.row--reverse {
+    flex-direction: row-reverse;
+    .feature__cnt {
+      margin-right: 0;
+    }
+    .feature__img {
+      margin-right: 50px;
+    }
+  }
+  @include mixin.mq(md, max) {
+    flex-direction: column-reverse;
+    + .feature {
+      margin-top: 40px;
+    }
+    &.row--reverse {
+      flex-direction: column-reverse;
+    }
+    &__cnt {
+      width: 100%;
+      margin: 20px auto 0;
+    }
+    &__img {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.feature_tag {
+  display: inline-block;
+  font-size: function.fz(12);
+  padding: function.em(9, 12) function.em(25, 12);
+  background-color: base.$accent-color;
+  color: #fff;
+}
+
+.plan {
+  background: url('/image/price@2x.png') no-repeat center / cover;
+  margin-top: 93px;
+  padding-top: 61px;
+  padding-bottom: 53px;
+  &__ttl {
+    font-size: function.fz(26);
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+  }
+  &__btn {
+    text-align: center;
+    margin-top: 25px;
+  }
+}

@@ -1,0 +1,171 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	course
+*********************************/
+.bread_crumb {
+  background-color: #f8f8f8;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  &__wrap {
+    display: flex;
+  }
+  &__item {
+    font-size: 12px;
+    + .bread_crumb__item {
+      margin-left: 20px;
+      position: relative;
+      &::before {
+        content: '>';
+        display: inline-block;
+        position: absolute;
+        left: -14px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+.fv_sub {
+  padding: 0;
+  height: 221px;
+  position: relative;
+  background: url(/image/bg-plan@2x.png) no-repeat center/ cover;
+  &__cnt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+  }
+  &__ttl {
+    font-size: function.fz(32);
+    color: #fff;
+    text-align: center;
+    @include mixin.mq(md,max) {
+      font-size: function.fz(26);
+    }
+  }
+}
+.course {
+  color: base.$base-color;
+  .price {
+    padding: 60px 0;
+    &__wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 658px;
+      margin: 60px auto 0;
+      @include mixin.mq(md,max) {
+        margin-top: 30px;
+      }
+    }
+    &__box {
+      font-size: function.fz(22);
+      font-weight: bold;
+      padding: 34px;
+      background-color: base.$base-color;
+      color: #fff;
+      width: 280px;
+      text-align: center;
+    }
+    &__txt {
+      margin-top: 45px;
+    }
+    @include mixin.mq(md, max) {
+      &__wrap {
+        flex-direction: column;
+      }
+      .plus {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .plus {
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background-color: base.$base-color;
+    position: relative;
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 2px;
+      background-color: base.$base-color;
+      position: absolute;
+      top: 0;
+      transform: rotate(90deg);
+    }
+  }
+
+  .price_plan {
+    padding-bottom: 60px;
+    .scroll {
+      width: 100%;
+      overflow-x: scroll;
+      margin-top: 70px;
+      @include mixin.mq(md, max) {
+        margin-top: 30px;
+      }
+    }
+    &__grid {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      @include mixin.mq(ipad,max) {
+        min-width: 917px;
+      }
+    }
+    &__box {
+      border: 1px solid base.$base-color;
+      width: calc((100% - 21px) / 4);
+      &.--recommend {
+        .price_plan__ttl {
+          background-color: base.$accent-color;
+        }
+      }
+    }
+    &__ttl {
+      background-color: base.$base-color;
+      color: #fff;
+      padding: 17px 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__name {
+      padding: 30px 20px;
+    }
+    &__price {
+      font-size: function.fz(25);
+      font-weight: bold;
+      text-align: center;
+      span {
+        font-size: function.fz(16);
+      }
+    }
+    &__list {
+      margin-top: 48px;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      + .price_plan__item {
+        margin-top: 23px;
+      }
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 9px;
+        background: url(/image/ico_check@2x.png) no-repeat center / contain;
+        margin-right: 11.5px;
+      }
+    }
+  }
+}

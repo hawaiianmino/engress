@@ -1,0 +1,39 @@
+@use "sass:map";
+
+/**
+ * レスポンシブ
+ * - sm:  480px〜
+ * - md:  768px〜
+ * - lg: 1024px〜
+ * - xl: 1200px〜
+ * - xxl: 1480px〜
+ * 
+ * 例）
+ * @include mq() { ... }
+ * @include mq(xxl) { ... }
+ * @include mq(sm, max) { ... }
+ */
+ $breakpoints: (
+  'sm': 480px,
+  'md': 768px,
+  'ipad': 769px,
+  'lg': 1024px,
+  'xl': 1200px,
+  'xxl': 1480px,
+) !default;
+
+@mixin mq($breakpoint: md, $type: min) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @if ($type == max) {
+      $width: map.get($breakpoints, $breakpoint);
+      $width: $width - 1;
+      @media screen and (max-width: #{$width}) {
+        @content;
+      }
+    } @else if($type == min) {
+      @media screen and (min-width: #{map.get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    }
+  }
+}

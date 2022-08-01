@@ -1,0 +1,349 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+// 共通
+body {
+  line-height: 1.5;
+  color: base.$base-color;
+  &.fixed {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  max-width: 937px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.fwB {
+  font-weight: bold;
+}
+
+.section_ttl {
+  color: #fff;
+  font-size: function.fz(32);
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.38;
+  @include mixin.mq(md, max) {
+    font-size: 28px;
+  }
+}
+.color--base {
+  color: base.$base-color;
+}
+.color--accent {
+  color: base.$accent-color;
+}
+.header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8000;
+  background-color: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: .9);
+  visibility: hidden;
+  z-index: 800;
+  &.active {
+    visibility: visible;
+  }
+}
+.pc {
+  display: block;
+  @include mixin.mq(md, max) {
+    display: none;
+  }
+}
+.sp {
+  display: none;
+  @include mixin.mq(md, max) {
+    display: block;
+  }
+}
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  margin-right: function.vw(1280, 28);
+  max-width: 136px;
+  a {
+    display: block;
+  }
+  img {
+    width: 100%;
+  }
+}
+.h2_ttl {
+  font-size: function.fz(26);
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.h3_ttl {
+  font-size: function.fz(22);
+  margin-top: 33px;
+  margin-bottom: 27px;
+  border-left: 4px solid base.$base-color;
+  padding-left: 10px;
+}
+.list {
+  margin-top: 30px;
+  &__item {
+    display: flex;
+    align-items: center;
+    &::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      background-color: base.$accent-color;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+}
+}
+.gnav {
+  font-size: function.fz(15);
+  z-index: 9000;
+  overflow-y: scroll;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: function.vw(1280, 28);
+    }
+  }
+  @include mixin.mq(lg, max) {
+    width: 85%;
+    margin-left: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    background-color: rgba($color: base.$base-color, $alpha: .9);
+    transition: all .3s;
+    &__list {
+      flex-direction: column;
+      margin-top: 20%;
+    }
+    &.active {
+      transform: translateX(0);
+      transition: all .3s;
+    }
+    &__item {
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      a {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        color: #fff;
+      }
+    }
+  }
+}
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  margin-top: 30px;
+  .btn {
+    width: 50%;
+    margin: 0 auto;
+    + .btn {
+      margin-left: auto;
+      margin-top: 10px;
+    }
+  }
+  @include mixin.mq(lg, max) {
+    display: flex;
+  }
+}
+.header-right {
+  display: flex;
+  align-items: center;
+}
+.phone {
+  margin-right: 10px;
+  text-align: right;
+  &__time {
+    font-size: function.fz(12);
+  }
+  &__num {
+    font-weight: 700;
+    font-size: function.fz(16);
+    margin-top: 10px;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 15px;
+      background: url(/image/ico-phone.png) no-repeat center / contain;
+      margin-right: 5px;
+    }
+  }
+  @include mixin.mq(lg, max) {
+    display: none;
+  }
+}
+
+// ボタン
+.header-btn-wrap {
+  display: flex;
+  @include mixin.mq(sm, max) {
+    display: none;
+  }
+}
+.btn {
+  font-size: function.fz(14);
+  text-align: center;
+  padding: function.em(18, 14) function.em(26, 14);
+  font-weight: 600;
+  width: 142px;
+  display: inline-block;
+  color: #fff;
+  border-radius: 5px;
+  &:hover {
+    opacity: .7;
+    transition: all .3s;
+  }
+
+  &--accent {
+    background-color: base.$accent-color;
+  }
+  &--default {
+    background-color: base.$base-color;
+  }
+  &--round2 {
+    color: base.$base-color;
+    border-radius: 25px;
+    width: 80%;
+    max-width: 200px;
+    &:hover {
+      background-color: base.$base-color;
+      color: #fff;
+    }
+  }
+  &--border {
+    border: 1px solid #fff;
+    color: #fff;
+    &:hover {
+      background-color: base.$base-color;
+      border: 1px solid base.$base-color;
+    }
+    &.btn {
+      @include mixin.mq(md, max) {
+        width: 80%;
+        max-width: 280px;
+      }
+    }
+  }
+  + .btn {
+    margin-left: 10px;
+  }
+  @include mixin.mq(md, max) {
+    padding: function.em(14, 14) function.em(16, 14);
+    width: 120px;
+  }
+}
+
+// ハンバーガーメニュー
+.hamburger {
+  display: none;
+  position: relative;
+  background:#D54884;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 50px;
+  height:50px;
+  margin-left: 10px;
+  z-index: 9999;
+  &__line {
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 14px;
+    height: 2px;
+    border-radius: 5px;
+    background: #fff;
+    width: 45%;
+    &:nth-of-type(1) {
+      top:13px;
+    }
+    &:nth-of-type(2) {
+      top:19px;
+    }
+    &:nth-of-type(3) {
+      top:25px;
+      &::after {
+        content:"Menu";/*3つ目の要素のafterにMenu表示を指定*/
+        position: absolute;
+        top:5px;
+        left:-2px;
+        color: #fff;
+        font-size: 0.6rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+  &.active {
+    .hamburger__line {
+      &:nth-of-type(1) {
+        top: 14px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 30%;
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+      &:nth-of-type(3) {
+        top: 26px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 30%;
+        &::after {
+          content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+          transform: translateY(0) rotate(-45deg);
+          top:5px;
+          left:4px;
+        }
+      }
+    }
+  }
+  @include mixin.mq(lg, max) {
+    display: block;
+  }
+}

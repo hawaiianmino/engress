@@ -1,0 +1,43 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	fv
+*********************************/
+.fv {
+  padding-top: 116px;
+  padding-bottom: 86px;
+  background: url('/image/fv@2x.png') no-repeat center / cover;
+  color: #fff;
+  margin-top: 80px;
+  &__cnt {
+    text-align: center;
+  }
+  &__ttl {
+    font-size: function.fz(48);
+  }
+  &__txt {
+    margin-top: 25px;
+    line-height: 1.72;
+  }
+  &__btn {
+    margin-top: 50px;
+    .btn {
+      width: 80%;
+      max-width: 260px;
+    }
+  }
+  &__contact {
+    margin-top: 22px;
+    a {
+      text-decoration: underline;
+      color: #fff;
+    }
+  }
+  @include mixin.mq(md, max) {
+    &__ttl {
+      font-size: function.fz(34);
+    }
+  }
+}

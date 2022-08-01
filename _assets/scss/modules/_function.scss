@@ -1,0 +1,39 @@
+@use "sass:math";
+
+/**
+ * 引数のfontSizeをremに変換する関数
+ * @param fontSize フォントサイズ
+ *
+ * 例）18pxをremに変換
+ * font-size: fz(18);
+ */
+@function fz($fontSize) {
+  @return math.div($fontSize, 16) * 1rem;
+}
+
+/**
+ * 引数の最大画面サイズから指定されたpx数を元にvwに変換する関数
+ * @param maxScreenSize 最大画面サイズ
+ * @param px 変換するpx数
+ * 
+ * 例）1440pxの幅に対して560pxの要素を可変させる
+ * width: vw(1440, 560);
+ */
+@function vw($maxScreenSize, $px) {
+  @return (math.div($px, $maxScreenSize) * 100) * 1vw;
+}
+
+/**
+ * 引数のfontSizeを元に指定されたpx数をemに変換する関数
+ * @param px 変換するpx数
+ * @param fontSize フォントサイズ
+ *
+ * 例）font-sizeが24pxの要素の下に80pxのmarginをem換算で設定する
+ * margin-bottom: em(80, 24);
+ * 
+ * font-sizeが16pxであれば第２引数は省略可能
+ * margin-bottom: em(40);
+ */
+@function em($px, $fontSize: 16) {
+  @return math.div($px, $fontSize) * 1em;
+}

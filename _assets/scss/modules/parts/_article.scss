@@ -1,0 +1,120 @@
+@use '../mixin';
+@use '../function';
+@use '../base';
+
+/*********************************
+	article
+*********************************/
+.article {
+  padding-bottom: 119px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    @include mixin.mq(ipad, max) {
+      flex-direction: column;
+    }
+  }
+  .section_ttl {
+    color: base.$base-color;
+    text-align: left;
+  }
+  .blog {
+    width: calc((100% - 67px) / 2);
+    @include mixin.mq(ipad, max) {
+      width: 100%;
+    }
+  }
+  .info {
+    width: calc((100% - 67px) / 2);
+    @include mixin.mq(ipad, max) {
+      width: 100%;
+      margin-top: 60px;
+    }
+  }
+}
+.card_list {
+  margin-top: 30px;
+  &__item {
+    + .card_list__item {
+      margin-top: 30px;
+    }
+  }
+  &__link {
+    display: flex;
+    &:hover {
+      opacity: .7;
+      transition: all .3s;
+    }
+  }
+  &__img {
+    width: 150px;
+    margin-right: 20px;
+    position: relative;
+    flex-shrink: 0;
+    &::before {
+      content: '';
+      display: block;
+      padding-top: 73.3%;
+    }
+    @include mixin.mq(md,max) {
+      width: 120px;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      flex: 0 0 auto;
+    }
+  }
+  &__cnt {
+    display: flex;
+    flex-direction: column;
+    color: base.$base-color;
+  }
+  &__ttl {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  &__time {
+    margin-top: auto;
+    font-size: function.fz(12);
+  }
+  &__tag {
+    display: inline-block;
+    background-color: base.$base-color;
+    padding: function.em(6,12) function.em(9,12);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-size: function.fz(12);
+    border: 1px solid #707070;
+  }
+}
+
+.info_list {
+  margin-top: 30px;
+  &__item {
+    + .info_list__item {
+      margin-top: 50px;
+    }
+  }
+  &__link {
+    color: base.$base-color;
+    &:hover {
+      opacity: .7;
+      transition: all .3s;
+    }
+  }
+  &__time {
+    font-size: function.fz(12);
+  }
+  &__ttl {
+    margin-top: 16px;
+    text-decoration: underline;
+  }
+}
